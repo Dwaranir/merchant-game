@@ -1,6 +1,6 @@
 .menu--item {
   display: block;
-  width: 100%;
+  max-width: 100%;
   height: fit-content;
 
   font-size: 5rem;
@@ -11,6 +11,7 @@
   margin-bottom: 1rem;
 }
 
-.menu--item:hover {
+.btn:hover {
   opacity: 75%;
+  cursor: pointer;
 }

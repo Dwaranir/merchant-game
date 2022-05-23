@@ -2,7 +2,9 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-const StartingMenu = ({ Engine, game, setGame, setGameStage }) => {
+import "./starting_menu.styles.scss";
+
+const StartingMenu = ({ Engine, setGame, setGameStage }) => {
   return (
     <div className="start--and__settings">
       <form
@@ -14,7 +16,7 @@ const StartingMenu = ({ Engine, game, setGame, setGameStage }) => {
           setGameStage("Gameplay");
         }}
       >
-        <input className="start--btn" type="submit" value="Start" />
+        <input className="start--btn btn" type="submit" value="Start" />
         <div className="settings">
           <input
             type="number"
@@ -36,7 +38,7 @@ const StartingMenu = ({ Engine, game, setGame, setGameStage }) => {
           />
         </div>
       </form>
-      <Link className="menu--item" to="/">
+      <Link className="menu--item btn" to="/">
         В главное меню
       </Link>
     </div>

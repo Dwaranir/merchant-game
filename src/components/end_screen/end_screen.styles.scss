@@ -1,0 +1,36 @@
+.statistic {
+  display: grid;
+  grid-template: 70vh/ 1fr 0.5fr 1fr;
+  width: 100%;
+  padding-bottom: 5rem;
+  gap: 2rem;
+}
+
+.bought--goods {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.profit--from__trip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+}
+
+.events--occured {
+  font-size: 2rem;
+  overflow-y: scroll;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.end--screen {
+  display: grid;
+  grid-template-rows: 1fr 0.1fr;
+  background-color: #52220a;
+  color: white;
+  padding: 1rem;
+}

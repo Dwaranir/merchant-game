@@ -14,9 +14,11 @@ class Merchant {
     this.money = this.earnStartingMoney();
     this.startingMoney = this.money;
     this.goodsInCart = [];
+    this.startingGoodsInCart = [];
     this.numberOfGoods = this.goodsInCart.length;
     this.startingCity = "";
     this.distanceTraveled = 0;
+    this.occuredEvents = [];
   }
 
   sellAllGoods(goodsPricesList) {
@@ -53,54 +55,63 @@ class Merchant {
     this.money = moneyAfterPurchase;
     this.currentLoad = loadAfterPurchase;
     this.goodsInCart.push(good);
+    this.startingGoodsInCart.push(good);
   }
 
   randomGoodSpoiled() {
     const randomIndex = Randomizer.generateRandomNumber(0, this.numberOfGoods);
-    this.goodsInCart[randomIndex].goBad();
+    this.goodsInCart?.[randomIndex]?.goBad();
+    return "Еда испортилась";
   }
 
   giveAllTheMoney() {
     this.setCartSpeed();
     this.money = 0;
+    return "Вас ограбили";
   }
 
   giveSomeGoods() {
     this.setCartSpeed();
     const productsInCart = this.goodsInCart.length;
+    const name = "Разбойники украли у вас товары";
 
-    if (productsInCart === 0) return;
-
-    if (productsInCart === 1) {
+    if (productsInCart === 0) return name;
+    else if (productsInCart === 1) {
       this.goodsInCart = 0;
-      return;
+      return name;
+    } else {
+      this.goodsInCart.length -= Math.floor(
+        productsInCart * this.#ROGUES_STEAL_PERSENT
+      );
+      return name;
     }
-
-    this.goodsInCart.length -= Math.floor(
-      productsInCart * this.#ROGUES_STEAL_PERSENT
-    );
   }
 
   sayHiToLocal() {
     this.setCartSpeed();
     this.speed += Randomizer.generateRandomNumber(3, 6);
+    return "Вы встретили местного крестиянина";
   }
 
   swimThroughRiver() {
     this.setCartSpeed(2);
+    return "Пришлось перебираться через реку";
   }
 
   repairTheCart() {
     this.speed = 0;
+    return "Вы потратили день на починку телеги";
   }
 
   speedUp() {
     this.setCartSpeed(3);
     this.speed += 2;
+    return "Вам повезло, дорога - просто сказка";
   }
 
   stall() {
     this.setCartSpeed(3);
+    return "Пошел дождь";
   }
 
   sellGood(Good) {
@@ -109,7 +120,7 @@ class Merchant {
   }
 
   sellAllStuff() {
-    console.log(this.goodsInCart);
+    if (this.goodsInCart.length === 0) return;
     this.goodsInCart.forEach((Good) => this.sellGood(Good));
     this.goodsInCart = [];
   }

@@ -16,53 +16,52 @@ class Events {
     this.type = "Начало игры";
   }
 
+  recordTheEvent(type) {
+    this.type = type;
+    this.eventOnPlayer.occuredEvents.push(this.type);
+  }
+
   goodSpoiled() {
     if (this.eventOnPlayer.length < 1) return;
-    this.eventOnPlayer.randomGoodSpoiled();
-    this.type = "Еда испортилась";
+    this.recordTheEvent(this.eventOnPlayer.randomGoodSpoiled());
   }
 
   roguesFromBigRoad() {
     if (this.eventOnPlayer.money > 0) {
-      this.eventOnPlayer.giveAllTheMoney();
-      this.type = "Вас ограбили";
+      this.recordTheEvent(this.eventOnPlayer.giveAllTheMoney());
     } else {
-      this.eventOnPlayer.giveSomeGoods();
-      this.type = "Разбойники украли у вас товары";
+      this.recordTheEvent(this.eventOnPlayer.giveSomeGoods());
     }
   }
 
   metALocal() {
-    this.eventOnPlayer.sayHiToLocal();
-    this.type = "Вы встретили местного крестиянина";
+    this.recordTheEvent(this.eventOnPlayer.sayHiToLocal());
   }
 
   river() {
-    this.eventOnPlayer.swimThroughRiver();
-    this.type = "Пришлось перебираться через реку";
+    this.recordTheEvent(this.eventOnPlayer.swimThroughRiver());
   }
 
   cartHasBeenDamaged() {
-    this.eventOnPlayer.repairTheCart();
-    this.type = "Вы потратили день на починку телеги";
+    this.recordTheEvent(this.eventOnPlayer.repairTheCart());
   }
 
   smoothRoad() {
-    this.eventOnPlayer.speedUp();
-    this.type = "Вам повезло, дорога - просто сказка";
+    this.recordTheEvent(this.eventOnPlayer.speedUp());
   }
 
   rain() {
-    this.eventOnPlayer.stall();
-    this.type = "Пошел дождь";
+    this.recordTheEvent(this.eventOnPlayer.stall());
     if (Randomizer.generateRandomNumber(1, 10) <= 2) {
-      this.eventOnPlayer.randomGoodSpoiled();
-      this.type = "Пошел дождь и один из продуктов испортился";
+      this.recordTheEvent(this.eventOnPlayer.randomGoodSpoiled());
     }
   }
 
   summonEvent() {
-    this.#EVENTS[Randomizer.generateRandomNumber(0, this.#EVENTS.length - 1)]();
+    const maxValue = this.#EVENTS.length - 1;
+    const randomEvent = Randomizer.generateRandomNumber(0, maxValue);
+
+    this.#EVENTS[randomEvent]();
   }
 }
 

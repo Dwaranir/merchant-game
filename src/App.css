@@ -6,6 +6,8 @@
 
 html {
   font-size: 62.5%;
+  font-family: "Fira Sans Extra Condensed", sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 a {
@@ -36,4 +38,8 @@ a, button /* &c... */ {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.App {
+  background-image: url("./assets/game-background.webp");
 }

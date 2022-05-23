@@ -1,20 +1,39 @@
 .player--stats__section {
   text-align: left;
   font-size: 2rem;
-  height: 100%;
-}
-
-.player--characteristics__container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  background-color: #52220a;
 }
 
 .inventory {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  overflow-x: hidden;
+}
+
+.inventory--items {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   overflow: scroll;
   gap: 1rem;
-  position: relative;
   overflow-x: hidden;
+  color: white;
+  background-color: #52220a;
+  padding: 1rem;
+}
+
+.player--characteristics__container {
+  grid-row: 2;
+  padding: 1rem;
+  color: white;
+}
+
+.inventory--btn {
+  grid-row: 3;
+  height: fit-content;
+  align-self: end;
 }

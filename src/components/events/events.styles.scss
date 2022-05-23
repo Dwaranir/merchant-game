@@ -1,14 +1,23 @@
 .events--section {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  height: 100%;
+  background-image: url("../../assets/NoticeBoard.webp");
+  background-size: contain;
+  color: white;
+}
+
+.events--inputs {
   display: flex;
   flex-direction: column;
-  height: 100%;
-
-  input {
-    align-self: center;
-  }
+  gap: 1rem;
+  align-self: end;
+  grid-row: 3;
 }
 
 .event {
-  font-size: 2rem;
+  font-size: 3rem;
   justify-self: center;
+  grid-row: 2;
+  align-self: center;
 }

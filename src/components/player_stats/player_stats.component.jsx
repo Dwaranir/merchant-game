@@ -12,11 +12,12 @@ const PlayerStats = ({ Game, inventory, toggleInventory }) => {
     if (inventory) {
       return (
         <section className="inventory">
-          <div className="inventory--items__container">
+          <div className="inventory--items">
             <Inventory Game={Game} goodsInCart={goodsInCart} />
           </div>
+
           <input
-            className="game--button attach--bottom"
+            className="game--button inventory--btn btn"
             type="button"
             value="Закрыть Инвентарь"
             onClick={() => {
@@ -40,7 +41,7 @@ const PlayerStats = ({ Game, inventory, toggleInventory }) => {
             <p className="current--money">Колличество Денег: {money} </p>
           </div>
           <input
-            className="game--button attach--bottom"
+            className="game--button inventory--btn btn"
             type="button"
             value="Открыть Инвентарь"
             onClick={() => toggleInventory(true)}

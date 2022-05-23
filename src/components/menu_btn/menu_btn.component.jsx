@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const MenuBtn = ({ content, way }) => {
   return (
-    <Link className="menu--item" to={way}>
+    <Link className="menu--item btn" to={way}>
       <div>{content}</div>
     </Link>
   );
