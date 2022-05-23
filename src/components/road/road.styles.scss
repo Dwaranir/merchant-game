@@ -1,0 +1,24 @@
+$AssetsSize: 5rem;
+
+.road {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: $AssetsSize;
+  grid-column: 1/3;
+}
+
+.player {
+  min-width: $AssetsSize;
+  max-width: $AssetsSize;
+  height: $AssetsSize;
+
+  img {
+    width: 100%;
+  }
+}
+
+.dot {
+  width: 100%;
+}

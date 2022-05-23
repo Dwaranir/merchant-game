@@ -1,16 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
+import MenuBtn from "../../components/menu_btn/menu_btn.component";
+
 import "./homepage.styles.scss";
 
 const Homepage = () => {
   return (
     <div className="menu">
-      <Link className="menu--item" to="/game">
-        <div>Начать играть</div>
-      </Link>
-      <Link className="menu--item" to="/settings">
-        <div>Настройки</div>
-      </Link>
+      <MenuBtn content="Начать играть" way="/game" />
+      <MenuBtn content="Настройки" way="/settings" />
     </div>
   );
 };

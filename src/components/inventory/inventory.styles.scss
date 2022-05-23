@@ -1,0 +1,36 @@
+.inventory--items__container {
+  height: 100%;
+}
+
+.product {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  font-size: 1.5rem;
+  text-align: start;
+
+  p {
+    display: block;
+  }
+}
+
+.normal {
+  background-color: green;
+  color: white;
+}
+.slightly--spoiled {
+  background-color: yellowgreen;
+  color: white;
+}
+.half--spoiled {
+  background-color: yellow;
+  color: white;
+}
+.almost--fully__spoiled {
+  background-color: orange;
+  color: white;
+}
+.spoiled {
+  background-color: red;
+  color: white;
+}

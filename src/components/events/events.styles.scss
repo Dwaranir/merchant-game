@@ -1,0 +1,14 @@
+.events--section {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  input {
+    align-self: center;
+  }
+}
+
+.event {
+  font-size: 2rem;
+  justify-self: center;
+}

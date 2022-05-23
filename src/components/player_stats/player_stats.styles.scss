@@ -1,0 +1,20 @@
+.player--stats__section {
+  text-align: left;
+  font-size: 2rem;
+  height: 100%;
+}
+
+.player--characteristics__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.inventory {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  gap: 1rem;
+  position: relative;
+  overflow-x: hidden;
+}
