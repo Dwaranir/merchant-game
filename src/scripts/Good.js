@@ -1,6 +1,7 @@
 import Randomizer from "./Randomizer";
 
 class Good {
+  // В JS нет ENUM, тут я их мимикрирую
   QualityEnum = Object.freeze({
     Normal: 1.2,
     "Slightly spoiled": 0.95,
@@ -9,6 +10,7 @@ class Good {
     Spoiled: 0.1,
   });
 
+  // Список возможных продуктов
   #PRODUCTS = [
     { name: "Мясо", weight: 10, buyPrice: 20 },
     { name: "Сухофрукты", weight: 2, buyPrice: 16 },
@@ -27,6 +29,7 @@ class Good {
     this.buyPrice = good.buyPrice;
   }
 
+  // Выбор случайного продукта
   chooseProduct() {
     return Randomizer.getRandomItem(
       this.#PRODUCTS,
@@ -35,6 +38,7 @@ class Good {
     );
   }
 
+  // Возвращает цену продажи исходя из качества и закупочной цены
   calculateSellPrice() {
     this.buyPrice *= this.quality;
   }
@@ -48,12 +52,14 @@ class Good {
     return this.#PRODUCTS[0][field];
   }
 
+  // Достает название качества продукта, исходя из его значения
   howBadIsGood() {
     return Object.keys(this.QualityEnum).find(
       (key) => this.QualityEnum[key] === this.quality
     );
   }
 
+  // Метод "портит" один из случайных продуктов
   goBad() {
     const currentQualityName = this.howBadIsGood();
 
@@ -76,6 +82,8 @@ class Good {
     }
   }
 
+  // Пытался сделать создание объекта исходя из ассинхронных данных,
+  // объекты создавались, но методы не отрабатывали, отложил на потом
   // constructor() {
   //   this.name = "";
   //   this.quality = this.QualityEnum.Normal;

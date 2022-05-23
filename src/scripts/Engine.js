@@ -3,6 +3,7 @@ import Good from "./Good";
 import Events from "./Events";
 import City from "./City";
 
+// Большая часть логики между объектами
 class Engine {
   constructor(DOMEvent) {
     this.player = new Merchant();
@@ -14,6 +15,7 @@ class Engine {
     this.startGame(DOMEvent);
   }
 
+  // Достает продукт с наименьшей ценой и наименьшим весом
   getLowestValues() {
     const good = new Good();
 
@@ -25,6 +27,7 @@ class Engine {
     return lowest;
   }
 
+  // Закупается продуктами пока нет перегрузки и есть деньги
   buyGoodsForTrip() {
     const { price: lowestPrice, weight: lowestWeight } = this.getLowestValues();
 

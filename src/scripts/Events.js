@@ -1,6 +1,7 @@
 import Randomizer from "./Randomizer";
 
 class Events {
+  // Список методов событий
   #EVENTS = [
     this.goodSpoiled.bind(this),
     this.roguesFromBigRoad.bind(this),
@@ -16,11 +17,13 @@ class Events {
     this.type = "Начало игры";
   }
 
+  // Делает запись о событии в объект игрока
   recordTheEvent(type) {
     this.type = type;
     this.eventOnPlayer.occuredEvents.push(this.type);
   }
 
+  // Все методы ниже - это события
   goodSpoiled() {
     if (this.eventOnPlayer.length < 1) return;
     this.recordTheEvent(this.eventOnPlayer.randomGoodSpoiled());
@@ -57,6 +60,7 @@ class Events {
     }
   }
 
+  // Выбирает случайное событие из списка и вызывает его
   summonEvent() {
     const maxValue = this.#EVENTS.length - 1;
     const randomEvent = Randomizer.generateRandomNumber(0, maxValue);
